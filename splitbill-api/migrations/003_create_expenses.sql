@@ -1,0 +1,22 @@
+CREATE TABLE expenses (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    group_id BIGINT NOT NULL,
+    paid_by BIGINT NOT NULL,
+    description VARCHAR(255) NOT NULL,
+    amount DECIMAL(15, 2) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (group_id) REFERENCES groups(id) ON DELETE CASCADE,
+    FOREIGN KEY (paid_by) REFERENCES users(id) ON DELETE CASCADE
+);
+
+CREATE TABLE expense_splits (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    expense_id BIGINT NOT NULL,
+    user_id BIGINT NOT NULL,
+    amount_owed DECIMAL(15, 2) NOT NULL,
+    is_paid TINYINT(1) NOT NULL DEFAULT 0,
+
+    FOREIGN KEY (expense_id) REFERENCES expenses(id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);

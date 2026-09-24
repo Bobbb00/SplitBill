@@ -1,0 +1,38 @@
+# Rahasia & Konfigurasi Lingkungan (SANGAT PENTING)
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+*.pem
+
+# Dependencies (Node.js & Frontend)
+splitbill-web/node_modules/
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Next.js Build Output (Frontend)
+splitbill-web/.next/
+splitbill-web/out/
+.next/
+out/
+build/
+
+# Golang (Backend)
+splitbill-api/splitbill
+splitbill-api/splitbill.exe
+*.exe
+*.test
+*.prof
+
+# IDE & OS Files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# abaikan panduan internal
+docs/MILESTONE_*
+docs/BACKEND_*
